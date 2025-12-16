@@ -1,102 +1,205 @@
 # 🎯 Repositório C# - Projetos e Soluções
 
-Este repositório contém projetos desenvolvidos em C# com diferentes propósitos e tecnologias. Abaixo, você encontrará uma descrição detalhada de cada projeto, suas funcionalidades e as tecnologias utilizadas.
+[![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
+[![C#](https://img.shields.io/badge/C%23-11.0-blue.svg)](https://docs.microsoft.com/en-us/dotnet/csharp/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+Este repositório contém uma coleção de projetos desenvolvidos em C# com diferentes propósitos, demonstrando conhecimento em arquiteturas modernas, padrões de design e tecnologias diversificadas. Cada projeto foi desenvolvido com foco em boas práticas, escalabilidade e manutenibilidade.
 
 ---
 
-## 📂 Estrutura de Projetos
+## 📂 Índice de Projetos
 
-### 🏦 [Desafio-BancoDigital](./Desafio-BancoDigital)
+1. [🏦 Desafio-BancoDigital](#-desafio-bancodigital) - Sistema Bancário com Microserviços
+2. [📄 JuntaPDF](#-juntapdf) - Aplicativo Desktop para Mesclar PDFs
+3. [🐾 PetShop](#-petshop) - Sistema de Gestão e Agendamento
 
-**Sistema Bancário Completo com Arquitetura de Microserviços**
+---
 
-Um sistema bancário robusto desenvolvido em .NET 8 que implementa operações de conta corrente e transferências bancárias com alta performance, segurança e escalabilidade.
+## 🏦 Desafio-BancoDigital
 
-#### 🎯 Funcionalidades Principais
-- Gestão completa de contas correntes (cadastro, autenticação, consulta)
-- Sistema de transferências entre contas com controle de idempotência
-- Movimentações financeiras (débitos e créditos) com histórico
-- Autenticação JWT com criptografia BCrypt
-- Comunicação assíncrona entre microserviços via Apache Kafka
-- Containerização completa com Docker e Docker Compose
+[![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
+[![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://www.docker.com/)
+[![Oracle](https://img.shields.io/badge/Oracle-21c-red.svg)](https://www.oracle.com/database/)
+[![Kafka](https://img.shields.io/badge/Apache-Kafka-orange.svg)](https://kafka.apache.org/)
 
-#### 🛠️ Stack Tecnológica
+### 📌 Descrição
 
-**Backend & Framework:**
+Sistema bancário completo desenvolvido com **arquitetura de microserviços**, implementando operações de conta corrente e transferências bancárias com alta performance, segurança e escalabilidade. O projeto demonstra conhecimento avançado em **Clean Architecture**, **CQRS**, **Event-Driven Architecture** e **containerização**.
+
+### ✨ Funcionalidades Principais
+
+#### 🏦 Gestão de Contas Correntes
+- ✅ Cadastro e autenticação de contas
+- ✅ Consulta de dados da conta
+- ✅ Ativação e inativação de contas
+- ✅ Validação de CPF e dados obrigatórios
+
+#### 💰 Movimentações Financeiras
+- ✅ Débitos e créditos em tempo real
+- ✅ Consulta de saldo instantânea
+- ✅ Extrato detalhado com histórico
+- ✅ Validação de saldo suficiente
+
+#### 💸 Sistema de Transferências
+- ✅ Transferências entre contas
+- ✅ Controle de idempotência
+- ✅ Validação de contas origem e destino
+- ✅ Histórico completo de transferências
+- ✅ Comunicação assíncrona via Kafka
+
+### 🛠️ Stack Tecnológica
+
+<details>
+<summary><b>Backend & Framework</b></summary>
+
 - **.NET 8.0** - Framework principal
 - **C# 11** - Linguagem de programação
-- **ASP.NET Core Web API** - Framework web
+- **ASP.NET Core Web API** - Framework web RESTful
+</details>
 
-**Arquitetura & Padrões:**
-- **Clean Architecture** - Organização de código em camadas
-- **CQRS Pattern** - Command Query Responsibility Segregation
-- **MediatR** (v12.2.0) - Mediator Pattern
+<details>
+<summary><b>Arquitetura & Padrões</b></summary>
+
+- **Clean Architecture** - Organização em camadas (Domain, Application, Infrastructure, API)
+- **CQRS Pattern** - Separação de comandos e consultas
+- **MediatR** (v12.2.0) - Implementação do Mediator Pattern
 - **DDD** - Domain Driven Design
-- **Repository Pattern** - Abstração de dados
+- **Repository Pattern** - Abstração de acesso a dados
+- **Event-Driven Architecture** - Comunicação baseada em eventos
+</details>
 
-**Banco de Dados & ORM:**
-- **Oracle Database 21c XE** - Banco de dados relacional
+<details>
+<summary><b>Banco de Dados & ORM</b></summary>
+
+- **Oracle Database 21c XE** - Banco de dados enterprise
 - **Dapper** (v2.1.35) - Micro ORM de alta performance
 - **Oracle.ManagedDataAccess.Core** (v23.9.1) - Driver .NET para Oracle
+</details>
 
-**Mensageria & Eventos:**
-- **Apache Kafka** (v7.4.0) - Message Broker
+<details>
+<summary><b>Mensageria</b></summary>
+
+- **Apache Kafka** (v7.4.0) - Message Broker para comunicação assíncrona
 - **Confluent Platform** - Ecossistema Kafka completo
-- **Zookeeper** - Coordenação de serviços Kafka
-- **Kafka UI** - Interface de gerenciamento
+- **Zookeeper** - Coordenação de serviços
+- **Kafka UI** - Interface visual para gerenciamento
+</details>
 
-**Segurança:**
+<details>
+<summary><b>Segurança</b></summary>
+
 - **JWT Bearer Authentication** - Autenticação stateless
-- **BCrypt.Net-Next** (v4.0.3) - Hash seguro de senhas
-- **System.IdentityModel.Tokens.Jwt** (v7.1.2) - Geração de tokens
+- **BCrypt.Net-Next** (v4.0.3) - Hash seguro de senhas com salt
+- **System.IdentityModel.Tokens.Jwt** (v7.1.2) - Geração e validação de tokens
 - **Microsoft.AspNetCore.Authentication.JwtBearer** (v8.0.0)
+</details>
 
-**DevOps & Containers:**
+<details>
+<summary><b>DevOps & Containers</b></summary>
+
 - **Docker** - Containerização de aplicações
 - **Docker Compose** - Orquestração de múltiplos containers
-- **Multi-stage Dockerfile** - Otimização de imagens
+- **Multi-stage Dockerfile** - Otimização de imagens Docker
+- **Docker Networks** - Isolamento e comunicação entre serviços
+- **Docker Volumes** - Persistência de dados
+</details>
 
-**Documentação & Testes:**
-- **Swagger/OpenAPI** (v6.4.0) - Documentação automática de API
+<details>
+<summary><b>Documentação & Monitoramento</b></summary>
+
+- **Swagger/OpenAPI** (v6.4.0) - Documentação automática e interativa
 - **Health Checks** - Monitoramento de saúde dos serviços
-- **API Testing** - Arquivos .http para testes
+- **API Testing** - Arquivos `.http` para testes de endpoints
+</details>
 
-#### 📦 Microserviços
+### 📦 Microserviços
 
-1. **Api_ContaCorrente**
-   - Gerenciamento de contas correntes
-   - Autenticação e autorização de usuários
-   - Operações de depósito e saque
-   - Consulta de saldo e extrato
+| Microserviço | Porta | Responsabilidades |
+|-------------|-------|-------------------|
+| **Api_ContaCorrente** | 5222 | Gestão de contas, autenticação JWT, movimentações, consultas |
+| **Api_Transferencia** | 5037 | Transferências, validações, controle de idempotência, histórico |
 
-2. **Api_Transferencia**
-   - Transferências entre contas
-   - Validação de saldo e limites
-   - Controle de idempotência
-   - Registro de histórico de transferências
+### 🏗️ Arquitetura
 
-#### 🚀 Como Executar
+```
+┌─────────────┐
+│   Cliente   │
+└──────┬──────┘
+       │
+       ├──────────────────┬──────────────────┐
+       ▼                  ▼                  ▼
+┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+│ API Conta    │   │ API Transf.  │   │   Swagger    │
+│  Corrente    │   │              │   │    UI        │
+└──────┬───────┘   └──────┬───────┘   └──────────────┘
+       │                   │
+       └────────┬──────────┘
+                ▼
+         ┌──────────────┐
+         │    Kafka     │
+         │  (Eventos)   │
+         └──────┬───────┘
+                │
+         ┌──────┴───────┐
+         ▼              ▼
+    ┌─────────┐   ┌─────────┐
+    │ Oracle  │   │  Logs   │
+    │   DB    │   │         │
+    └─────────┘   └─────────┘
+```
+
+**Camadas (Clean Architecture):**
+```
+📂 Microserviço
+├── 🎮 API Layer          → Controllers, Program.cs
+├── 📋 Application Layer  → Commands, Queries, Handlers, DTOs
+├── 🏢 Domain Layer       → Entities, ValueObjects, Interfaces
+└── 🔧 Infrastructure     → Repositories, Data, Services Externos
+```
+
+### 🚀 Como Executar
+
+#### Via Docker Compose (Recomendado)
 
 ```powershell
-# Navegar até o diretório do projeto
+# Navegar até o diretório
 cd Desafio-BancoDigital
 
-# Iniciar todos os serviços com Docker Compose
+# Iniciar todos os serviços
 docker-compose up -d
 
-# Verificar status dos containers
+# Verificar status
 docker-compose ps
 
-# Acessar as APIs
-# Api_ContaCorrente: http://localhost:5001
-# Api_Transferencia: http://localhost:5002
-# Swagger ContaCorrente: http://localhost:5001/swagger
-# Swagger Transferencia: http://localhost:5002/swagger
+# Parar serviços
+docker-compose down
 ```
+
+#### Endpoints Disponíveis
+
+| Serviço | URL | Swagger |
+|---------|-----|---------|
+| API Conta Corrente | http://localhost:5222 | http://localhost:5222/swagger |
+| API Transferência | http://localhost:5037 | http://localhost:5037/swagger |
+| Kafka UI | http://localhost:8080 | - |
+| Oracle Database | localhost:1521 | - |
+
+### 📖 Documentação Completa
+
+Para mais detalhes sobre endpoints, exemplos de requisições, configuração do Kafka e troubleshooting, consulte o [README completo do projeto](./Desafio-BancoDigital/README.md).
 
 ---
 
-### 📄 [JuntaPDF](./JuntaPDF)
+## 📄 JuntaPDF
+
+[![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
+[![Windows Forms](https://img.shields.io/badge/WinForms-Desktop-blue.svg)](https://docs.microsoft.com/dotnet/desktop/winforms/)
+[![iText 7](https://img.shields.io/badge/iText-7-orange.svg)](https://itextpdf.com/)
+
+### 📌 Descrição
+
+Aplicativo **desktop Windows Forms** para mesclar múltiplos arquivos PDF de forma simples, rápida e **100% offline**. Desenvolvido para oferecer máxima proteção de dados, eliminando riscos de vazamento ao processar documentos localmente sem necessidade de upload para servidores externos.
 
 **Aplicativo Desktop para Mesclagem de Arquivos PDF**
 
